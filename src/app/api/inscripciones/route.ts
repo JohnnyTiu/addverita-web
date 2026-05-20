@@ -50,6 +50,21 @@ export async function POST(request: Request) {
     }
 
     const supabase = createSupabaseServerClient();
+    
+    const { data: existingInscripcion } = await supabase
+      .from("inscripciones")
+      .select("id")
+      .eq("email", payload.email)
+      .eq("plan", payload.plan)
+      .maybeSingle();
+
+    if (existingInscripcion) {
+      return NextResponse.json(
+        { message: "Ya estás inscrito en este plan con este correo electrónico." },
+        { status: 409 },
+      );
+    }
+
     const { error } = await supabase.from("inscripciones").insert({
       full_name: payload.fullName,
       email: payload.email,
