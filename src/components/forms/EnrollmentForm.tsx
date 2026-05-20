@@ -6,6 +6,7 @@ import { FormEvent, useMemo, useState } from "react";
 import { plans } from "@/data/site";
 
 const modalities = ["Online", "Presencial", "Híbrido"];
+const submitTimeoutMs = 15000;
 
 type FormState = {
   status: "idle" | "loading" | "success" | "error";
@@ -27,9 +28,16 @@ export function EnrollmentForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setState({ status: "loading", message: "Enviando inscripción..." });
+    const form = event.currentTarget;
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), submitTimeoutMs);
 
-    const formData = new FormData(event.currentTarget);
+    setState({
+      status: "loading",
+      message: "Estamos enviando tu inscripción. Esto puede tardar unos segundos.",
+    });
+
+    const formData = new FormData(form);
     const payload = {
       fullName: String(formData.get("fullName") ?? ""),
       email: String(formData.get("email") ?? ""),
@@ -40,21 +48,47 @@ export function EnrollmentForm() {
       message: String(formData.get("message") ?? ""),
     };
 
-    const response = await fetch("/api/inscripciones", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    try {
+      const response = await fetch("/api/inscripciones", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
 
-    const result = (await response.json()) as { message: string };
+      const result = (await response.json().catch(() => null)) as {
+        message?: string;
+      } | null;
 
-    if (!response.ok) {
-      setState({ status: "error", message: result.message });
-      return;
+      if (!response.ok) {
+        setState({
+          status: "error",
+          message:
+            result?.message ??
+            "No pudimos confirmar tu inscripción. Revisa tu conexión e intenta de nuevo.",
+        });
+        return;
+      }
+
+      form.reset();
+      setState({
+        status: "success",
+        message:
+          result?.message ??
+          "Tu inscripción fue recibida. Te contactaremos pronto.",
+      });
+    } catch (error) {
+      const isTimeout = error instanceof DOMException && error.name === "AbortError";
+
+      setState({
+        status: "error",
+        message: isTimeout
+          ? "La inscripción está tardando más de lo normal. Intenta de nuevo o escríbenos por WhatsApp."
+          : "No pudimos enviar tu inscripción. Revisa tu conexión e intenta nuevamente.",
+      });
+    } finally {
+      window.clearTimeout(timeoutId);
     }
-
-    event.currentTarget.reset();
-    setState({ status: "success", message: result.message });
   }
 
   return (
@@ -145,7 +179,7 @@ export function EnrollmentForm() {
           disabled={state.status === "loading"}
           className="focus-ring inline-flex items-center justify-center gap-2 rounded-md bg-ink-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-ink-800 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          Enviar inscripción
+          {state.status === "loading" ? "Enviando..." : "Enviar inscripción"}
           <Send className="h-4 w-4" aria-hidden />
         </button>
       </div>
