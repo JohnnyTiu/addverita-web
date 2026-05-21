@@ -25,14 +25,25 @@ export default function ContactoPage() {
       <section className="section-pad bg-smoke-50">
         <div className="container-page grid gap-5 md:grid-cols-3">
           {[
-            { icon: Mail, label: "Correo", value: "hola@addveritas.com" },
-            { icon: Phone, label: "WhatsApp", value: "+502 0000 0000" },
-            { icon: MapPin, label: "Ubicación", value: "Guatemala" },
+            { icon: Mail, label: "Correo", value: "addverita@gmail.com", href: "mailto:addverita@gmail.com" },
+            { icon: Phone, label: "WhatsApp", value: "+502 4202 6792", href: `https://wa.me/${phone}` },
+            { icon: MapPin, label: "Ubicación", value: "7ma Calle, 4A-06 Zona 9 Los Cerezos 1, Quetzaltenango", href: "https://maps.app.goo.gl/eWChq4oUaCf2wuhf8" },
           ].map((item) => (
             <article key={item.label} className="rounded-lg border border-smoke-100 bg-white p-6 shadow-sm">
               <item.icon className="h-7 w-7 text-gold-500" aria-hidden />
               <h2 className="mt-5 text-lg font-bold text-ink-950">{item.label}</h2>
-              <p className="mt-2 text-sm text-smoke-500">{item.value}</p>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 block text-sm text-smoke-500 transition-colors hover:text-gold-500 hover:underline"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <p className="mt-2 text-sm text-smoke-500">{item.value}</p>
+              )}
             </article>
           ))}
         </div>

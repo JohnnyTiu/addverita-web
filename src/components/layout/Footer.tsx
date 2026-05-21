@@ -48,10 +48,15 @@ export function Footer() {
               <Phone className="h-4 w-4 text-gold-300" aria-hidden />
               +502 0000 0000
             </p>
-            <p className="flex items-center gap-3">
+            <a
+              href="https://maps.app.goo.gl/eWChq4oUaCf2wuhf8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 transition-colors hover:text-white"
+            >
               <MapPin className="h-4 w-4 text-gold-300" aria-hidden />
               Guatemala
-            </p>
+            </a>
           </div>
           <div className="mt-5 flex gap-3">
             {socialLinks.map((item) => (

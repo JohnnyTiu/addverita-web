@@ -24,7 +24,7 @@ export default function CafeJuridicoPage() {
           <SectionHeader
             eyebrow="Café Jurídico"
             title="Conversaciones para pensar el Derecho fuera del aula."
-            description="Un espacio relajado, crítico y bien guiado para discutir casos, sentencias y temas actuales con estudiantes que quieren afinar su criterio."
+            description="Te invitamos a un espacio donde conocerás la realidad del ejercicio profesional del Derecho, descubriendo las diferencias entre la vida universitaria y el mundo laboral, a través de experiencias reales, mitos, consejos y aprendizajes prácticos para futuros abogados."
             inverted
           />
         </div>

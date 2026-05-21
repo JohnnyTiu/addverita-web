@@ -40,10 +40,15 @@ export function EventCard({ event, dark = false }: EventCardProps) {
             <CalendarDays className="h-4 w-4 text-gold-400" aria-hidden />
             {event.date}
           </p>
-          <p className="flex items-center gap-2">
+          <a
+            href="https://maps.app.goo.gl/eWChq4oUaCf2wuhf8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 transition-colors hover:text-gold-400"
+          >
             <MapPin className="h-4 w-4 text-gold-400" aria-hidden />
             {event.location}
-          </p>
+          </a>
         </div>
       </div>
     </article>

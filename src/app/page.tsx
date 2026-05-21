@@ -2,7 +2,7 @@ import { ArrowRight, BookOpen, CalendarDays, GraduationCap } from "lucide-react"
 import { EventCard } from "@/components/cards/EventCard";
 import { PlanCard } from "@/components/cards/PlanCard";
 import { SectionHeader } from "@/components/common/SectionHeader";
-import { Hero } from "@/components/sections/Hero";
+import { Hero } from "@/components/layout/sections/Hero";
 import { events, plans, stats } from "@/data/site";
 import Image from "next/image";
 import Link from "next/link";
