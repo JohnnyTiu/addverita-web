@@ -42,11 +42,11 @@ export function Footer() {
           <div className="mt-4 grid gap-3 text-sm text-smoke-300">
             <p className="flex items-center gap-3">
               <Mail className="h-4 w-4 text-gold-300" aria-hidden />
-              hola@addveritas.com
+              addverita@gmail.com
             </p>
             <p className="flex items-center gap-3">
               <Phone className="h-4 w-4 text-gold-300" aria-hidden />
-              +502 0000 0000
+              +502 4202 6792
             </p>
             <a
               href="https://maps.app.goo.gl/eWChq4oUaCf2wuhf8"
@@ -55,7 +55,7 @@ export function Footer() {
               className="flex items-center gap-3 transition-colors hover:text-white"
             >
               <MapPin className="h-4 w-4 text-gold-300" aria-hidden />
-              Guatemala
+              7ma Calle, 4A-06 Zona 9 Los Cerezos 1, Quetzaltenango
             </a>
           </div>
           <div className="mt-5 flex gap-3">
