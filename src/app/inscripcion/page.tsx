@@ -14,7 +14,7 @@ export default function InscripcionPage() {
           <SectionHeader
             eyebrow="Inscripción"
             title="Cuéntanos qué necesitas reforzar y coordinamos tu espacio."
-            description="Completa el formulario y el equipo de Addlegal/Addveritas te contactará para confirmar modalidad, horario y próximos pasos."
+            description="Completa el formulario y el equipo de ADDVERITAS/ADDLEGAL te contactará para confirmar modalidad, horario y próximos pasos."
             inverted
           />
         </div>
