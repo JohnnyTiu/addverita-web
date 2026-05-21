@@ -78,10 +78,10 @@ export default function HomePage() {
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-950 via-ink-950/72 to-transparent p-6 text-white">
               <p className="text-sm uppercase tracking-[0.2em] text-gold-300">
-                Café Jurídico
+                Actividades
               </p>
               <p className="mt-3 max-w-md text-2xl font-semibold">
-                Conversaciones para aprender a pensar, argumentar y sostener una postura.
+                Espacios para debatir, practicar, crear y sostener una postura jurídica.
               </p>
             </div>
           </div>

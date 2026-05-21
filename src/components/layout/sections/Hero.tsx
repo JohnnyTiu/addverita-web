@@ -45,8 +45,8 @@ export function Hero() {
         <div className="animate-fade-up rounded-lg border border-white/15 bg-white/10 p-5 shadow-soft backdrop-blur md:p-6">
           <div className="flex items-center justify-between border-b border-white/10 pb-5">
             <div>
-              <p className="text-sm text-smoke-300">Próximo espacio</p>
-              <p className="mt-1 text-xl font-semibold">Café Jurídico</p>
+              <p className="text-sm text-smoke-300">Plataforma juvenil</p>
+              <p className="mt-1 text-xl font-semibold">Actividades jurídicas</p>
             </div>
             <span className="flex h-11 w-11 items-center justify-center rounded-md bg-gold-400 text-ink-950">
               <Sparkles className="h-5 w-5" aria-hidden />
@@ -54,9 +54,9 @@ export function Hero() {
           </div>
           <div className="grid gap-4 py-5">
             {[
-              ["Tema", "Argumentación constitucional"],
+              ["Áreas", "Formación, práctica y liderazgo"],
               ["Modalidad", "Online y presencial"],
-              ["Duración", "90 minutos"],
+              ["Formato", "Talleres, retos y debates"],
             ].map(([label, value]) => (
               <div key={label} className="flex items-center justify-between gap-4">
                 <span className="text-sm text-smoke-300">{label}</span>
@@ -65,10 +65,10 @@ export function Hero() {
             ))}
           </div>
           <Link
-            href="/cafe-juridico"
+            href="/actividades"
             className="focus-ring inline-flex w-full items-center justify-center rounded-md border border-gold-400 px-4 py-3 text-sm font-semibold text-gold-300 transition hover:bg-gold-400 hover:text-ink-950"
           >
-            Reservar cupo
+            Ver actividades
           </Link>
         </div>
       </div>

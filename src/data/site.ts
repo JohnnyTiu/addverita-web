@@ -20,7 +20,7 @@ export type Event = {
 export const navigation = [
   { href: "/", label: "Inicio" },
   { href: "/tutorias", label: "Tutorías" },
-  { href: "/cafe-juridico", label: "Café Jurídico" },
+  { href: "/actividades", label: "Actividades" },
   { href: "/eventos", label: "Eventos" },
   { href: "/inscripcion", label: "Inscripción" },
   { href: "/contacto", label: "Contacto" },

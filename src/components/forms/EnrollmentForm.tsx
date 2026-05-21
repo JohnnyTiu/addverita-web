@@ -19,6 +19,7 @@ const fieldClass =
 export function EnrollmentForm() {
   const searchParams = useSearchParams();
   const selectedPlan = searchParams.get("plan");
+  const selectedActivity = searchParams.get("actividad");
   const defaultPlan = useMemo(() => {
     return plans.some((plan) => plan.name === selectedPlan)
       ? selectedPlan ?? plans[0].name
@@ -165,7 +166,10 @@ export function EnrollmentForm() {
           <textarea
             className={`${fieldClass} min-h-32 resize-y`}
             name="message"
-            placeholder="Cuéntanos qué curso o tema quieres reforzar"
+            defaultValue={
+              selectedActivity ? `Me interesa la actividad: ${selectedActivity}` : undefined
+            }
+            placeholder="Cuéntanos qué curso, tema o actividad quieres reforzar"
           />
         </label>
       </div>
