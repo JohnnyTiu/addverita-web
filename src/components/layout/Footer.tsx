@@ -12,7 +12,7 @@ export function Footer() {
               <Scale className="h-5 w-5" aria-hidden />
             </span>
             <div>
-              <p className="font-bold">Addlegal/Addveritas</p>
+              <p className="font-bold">ADDVERITAS/ADDLEGAL</p>
               <p className="text-sm text-gold-300">Formación jurídica para estudiantes</p>
             </div>
           </div>
@@ -40,14 +40,22 @@ export function Footer() {
         <div>
           <p className="text-sm font-semibold text-gold-300">Contacto</p>
           <div className="mt-4 grid gap-3 text-sm text-smoke-300">
-            <p className="flex items-center gap-3">
+            <a
+              href="mailto:addverita@gmail.com"
+              className="flex items-center gap-3 transition-colors hover:text-white"
+            >
               <Mail className="h-4 w-4 text-gold-300" aria-hidden />
               addverita@gmail.com
-            </p>
-            <p className="flex items-center gap-3">
+            </a>
+            <a
+              href="https://wa.me/50242026792"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 transition-colors hover:text-white"
+            >
               <Phone className="h-4 w-4 text-gold-300" aria-hidden />
               +502 4202 6792
-            </p>
+            </a>
             <a
               href="https://maps.app.goo.gl/eWChq4oUaCf2wuhf8"
               target="_blank"
@@ -73,7 +81,7 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10 py-5">
         <p className="container-page text-xs text-smoke-300">
-          © {new Date().getFullYear()} Addlegal/Addveritas. Todos los derechos reservados.
+          © {new Date().getFullYear()} Insituto de Estudios Jurídicos ADDVERITAS. Todos los derechos reservados.
         </p>
       </div>
     </footer>

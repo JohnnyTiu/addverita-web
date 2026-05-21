@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function ContactoPage() {
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "50200000000";
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "50242026792";
 
   return (
     <>
